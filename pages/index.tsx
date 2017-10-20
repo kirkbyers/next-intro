@@ -16,7 +16,7 @@ const menuLinks = [
   {
     label: 'Homebrewing',
     href: '/reddit-self-sub?r=Homebrewing',
-    as: '/r/Hombrewing'
+    as: '/r/Homebrewing'
   }
 ];
 

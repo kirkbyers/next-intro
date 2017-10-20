@@ -10,24 +10,25 @@ interface Props {
   url: UrlLike;
 }
 
-const RedditSelfSub: any = (props: Props) => {
-  console.log(props);
-  return (
-    <div>
-      {props.posts.data.children.map((post, index) => (
-        post.data.is_self && <RedditSelfPostComponent post={post.data} key={index} />
-      ))}
-    </div>
-  );
-};
-
-RedditSelfSub.getInitialProps = async function (context: UrlLike) {
-  const res = await Fetch(`https://www.reddit.com/r/${context.query.r}.json`);
-  const payload = await res.json();
-  console.log(payload);
-  return {
-    posts: payload
+class RedditSelfSub extends React.Component<Props, any> {
+  static async getInitialProps(context: UrlLike) {
+    const res = await Fetch(`https://www.reddit.com/r/${context.query.r}/.json`).catch(err => console.log(err));
+    const payload = await res.json();
+    return {
+      posts: payload
+    }
   }
-}
+
+  render() {
+    const { posts } = this.props;
+    return (
+      <div>
+        {posts && posts.data.children.map((post, index) => (
+          post.data.is_self && <RedditSelfPostComponent post={post.data} key={index} />
+        ))}
+      </div>
+    );
+  }
+};
 
 export default RedditSelfSub;
