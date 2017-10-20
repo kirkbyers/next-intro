@@ -12,6 +12,11 @@ const menuLinks = [
     label: 'My Post 1',
     href: '/post?title=My Post 1',
     as: '/p/my post 1'
+  },
+  {
+    label: 'Homebrewing',
+    href: '/reddit-self-sub?r=Homebrewing',
+    as: '/r/Hombrewing'
   }
 ];
 

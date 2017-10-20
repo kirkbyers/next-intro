@@ -1,0 +1,1 @@
+export { RedditSelfPostComponent } from './reddit';

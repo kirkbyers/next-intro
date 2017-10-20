@@ -1,0 +1,1 @@
+export { default as RedditSelfPostComponent } from './self-post';
